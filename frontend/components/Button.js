@@ -1,26 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
-export const styles = StyleSheet.create({
-  default: {backgroundColor: 'red'},
-  primary: {backgroundColor: 'green'},
-})
+
 
 const Button = (props) =>(
-  <TouchableOpacity style={styles[props.type]} onPress={props.onClick}>
-    <Text>{props.label}</Text>
+  <TouchableOpacity onPress={props.onClick}>
+    <Image source={require("../assets/nice-logo.png")} style={{width: 400, height: 400}}/>
   </TouchableOpacity>
 )
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'primary']),
   onClick: PropTypes.func.isRequired
-}
-
-Button.defaultProps = {
-  type: 'default',
 }
 
 Button.displayName = 'Nice'
