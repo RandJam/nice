@@ -10,26 +10,6 @@ describe('rendering',  () => {
   it('renders a <TouchableOpacity/>', () => {
     expect(wrapper.find('TouchableOpacity')).toHaveLength(1)
   })
-  it('renders a label', () => {
-    expect(wrapper.find('Text').contains('Submit')).toBe(true)
-  })
-
-  describe('no type', () => {
-    it('has the default style', () => {
-      expect(wrapper.find('TouchableOpacity').prop('style')).toEqual(
-          styles.default
-        )
-    })
-  })
-
-  describe('primary type', () => {
-    beforeEach(() => {
-      wrapper = shallow(<Button label="Submit" type="primary" onClick={() => {}}/>)
-    })
-    it('has the primary style', () => {
-      expect(wrapper.find('TouchableOpacity').prop('style')).toEqual(styles.primary)
-    })
-  })
 })
 
 describe('interaction', () => {

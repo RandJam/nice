@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from './components/Button'
+import BasicFlatList from './components/BasicFlatList'
+
 
 
 export default class App extends React.Component {
@@ -8,7 +10,9 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Button label='Nice' onClick={()=> {alert('clicked')}}/>
+        <BasicFlatList />
       </View>
+
     );
   }
 }
