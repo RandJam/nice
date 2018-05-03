@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+request = "*"
+pymongo = "==3.4.0"
+
+[dev-packages]
+pytest = "*"
+pytest-flask = "*"
+
+[requires]
+python_version = "3.6"
