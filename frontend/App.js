@@ -1,27 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Button from './components/Button'
-import BasicFlatList from './components/BasicFlatList'
+import Button from './src/components/Button'
+import BasicFlatList from './src/components/BasicFlatList'
+import { StackNavigator } from 'react-navigation';
 
+import ButtonScreen from './src/screens/ButtonScreen'
+import ListScreen from './src/screens/ListScreen'
 
+const Navigation = StackNavigator({
+  First: {screen: ButtonScreen},
+  Second: {screen: ListScreen}
+})
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Button label='Nice' onClick={()=> {alert('clicked')}}/>
-        <BasicFlatList />
-      </View>
-
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default Navigation;
