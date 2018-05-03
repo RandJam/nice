@@ -1,0 +1,50 @@
+import React from 'react';
+import { shallow } from 'enzyme'; //Enzyme is a testing utility used for making assertions and manipulating React components
+import Button, { styles } from '../Button';
+
+describe('rendering',  () => {
+  let wrapper
+  beforeEach(() => {
+    wrapper = shallow(<Button label="Submit" onClick={() => {}}/>)
+  })
+  it('renders a <TouchableOpacity/>', () => {
+    expect(wrapper.find('TouchableOpacity')).toHaveLength(1)
+  })
+  it('renders a label', () => {
+    expect(wrapper.find('Text').contains('Submit')).toBe(true)
+  })
+
+  describe('no type', () => {
+    it('has the default style', () => {
+      expect(wrapper.find('TouchableOpacity').prop('style')).toEqual(
+          styles.default
+        )
+    })
+  })
+
+  describe('primary type', () => {
+    beforeEach(() => {
+      wrapper = shallow(<Button label="Submit" type="primary" onClick={() => {}}/>)
+    })
+    it('has the primary style', () => {
+      expect(wrapper.find('TouchableOpacity').prop('style')).toEqual(styles.primary)
+    })
+  })
+})
+
+describe('interaction', () => {
+  let wrapper
+  let props
+  beforeEach(() => {
+    props = {label: 'Submit', onClick: jest.fn() },
+    wrapper = shallow(<Button {...props} />)
+  })
+  describe('clicking the button', () => {
+    beforeEach(() => {
+      wrapper.find('TouchableOpacity').prop('onPress')()
+    })
+    it('calls the onClick callback function', () => {
+      expect(props.onClick).toHaveBeenCalledTimes(1)
+    })
+  })
+})
