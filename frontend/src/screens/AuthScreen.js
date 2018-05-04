@@ -11,7 +11,7 @@ export default class AuthScreen extends Component {
   }
 
   handleLogInPress = () => {
-    this.props.navigation.navigate('ButtonScreen');
+    this.props.navigation.navigate('HomeScreen');
   }
 
   render() {
