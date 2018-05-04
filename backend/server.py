@@ -48,22 +48,30 @@ def create_app():
         name = data["displayName"]
         emails = data["emails"][0]["value"]
 
-        # user = {"_id": data["id"],
-        #             "name": data["displayName"],
-        #             "email": data["emails"][0]["value"],
-        #             "gender": data["gender"],
-        #             "date": datetime.now()
-        #         }
-        #
-        # collection.insert_one(user)
+        try:
+            gender = data["gender"],
+        except Exception as e:
+            gender = "not given",
 
-        users = collection.find()
+        user = {"_id": data["id"],
+                    "name": data["displayName"],
+                    "email": data["emails"][0]["value"],
+                    "gender": gender,
+                    "date": datetime.now()
+                }
+        try:
+            collection.insert_one(user)
+        except Exception as e:
+            error = str(e)
+
+        # collection.delete_one({"_id":"106892412375491885318"})
+
+        users = [doc for doc in collection.find()]
 
         niceUsers = json2html.convert(json = users)
         niceData = json2html.convert(json = data)
 
         print("><><><><><><><><><><")
-        print(users)
 
         return f"Hello, {name}! Your email address is, {emails}<br/><br/>{niceData}<br/><br/><br/>{niceUsers}"
 
