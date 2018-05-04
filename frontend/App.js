@@ -18,4 +18,12 @@ const AppNavigator = new StackNavigator({
   HomeScreen: { screen: HomeScreen},
   LoggedInScreen: { screen: LoggedInScreen},
   ButtonScreen: { screen: ButtonScreen}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
