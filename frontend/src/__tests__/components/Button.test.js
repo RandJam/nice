@@ -1,6 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme'; //Enzyme is a testing utility used for making assertions and manipulating React components
+import { mount, shallow } from 'enzyme'; //Enzyme is a testing utility used for making assertions and manipulating React components
 import Button, { styles } from '../../components/Button';
+import Logo from '../../assets/nice-logo.png';
 
 describe('rendering',  () => {
   let wrapper
@@ -10,6 +11,10 @@ describe('rendering',  () => {
   it('renders a <TouchableOpacity/>', () => {
     expect(wrapper.find('TouchableOpacity')).toHaveLength(1)
   })
+
+  it("renders a nice logo", () => {
+    expect(wrapper.find('Image').prop('source')).toEqual(Logo)
+  });
 })
 
 describe('interaction', () => {
