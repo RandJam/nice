@@ -1,5 +1,6 @@
 import React from 'react';
-import App from './App';
+import App from '../../../App';
+import { shallow } from 'enzyme';
 
 import renderer from 'react-test-renderer';
 

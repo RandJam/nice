@@ -4,10 +4,16 @@ import {
 } from 'react-native';
 import RectangleButton from '../components/RectangleButton'
 
-export default class App extends Component {
-  onButtonPress(){
-    alert('google button pressed')
+export default class HomeScreen extends Component {
+
+  static navigationOptions = {
+    header: 'none'
   }
+
+  handleLogInPress = () => {
+    this.props.navigation.navigate('LoggedInScreen');
+  }
+
   render() {
     return (
       <View style={styles.wrapper}>
@@ -21,7 +27,7 @@ export default class App extends Component {
             text="Sign in with Google"
             color={'indigo'}
             backgroundColor={'blue'}
-            handleOnPress={this.onButtonPress}
+            handleOnPress={this.handleLogInPress}
           />
         </View>
       </View>

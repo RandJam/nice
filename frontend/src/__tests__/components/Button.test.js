@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme'; //Enzyme is a testing utility used for making assertions and manipulating React components
-import Button, { styles } from '../Button';
+import Button, { styles } from '../../components/Button';
 
 describe('rendering',  () => {
   let wrapper

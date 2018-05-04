@@ -1,11 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component }  from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import Home from './src/screens/Home';
+import { StackNavigator } from 'react-navigation';
+import HomeScreen from './src/screens/HomeScreen';
+import ButtonScreen from './src/screens/ButtonScreen'
+import LoggedInScreen from './src/screens/LoggedInScreen'
+
 
 export default class App extends Component {
   render() {
     return (
-    <Home />
+    <AppNavigator />
     );
   }
 }
+
+const AppNavigator = new StackNavigator({
+  HomeScreen: { screen: HomeScreen},
+  LoggedInScreen: { screen: LoggedInScreen},
+  ButtonScreen: { screen: ButtonScreen}
+});
