@@ -10,15 +10,14 @@ describe ("HomeScreen", () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  it('calls navigate on pressing sign in', () => {
+  it("Nice button redirects to ListScreen view", () => {
     const fakeNavigation = {navigate: jest.fn()};
 
-    let home = renderer.create(<HomeScreen
+    let homeScreen = renderer.create(<HomeScreen
       navigation={fakeNavigation}
       />
     ).getInstance();
-
-    home.handleLogInPress();
-    expect(fakeNavigation.navigate).toHaveBeenCalledTimes(1);
+     homeScreen.handleNiceButtonPress();
+     expect(fakeNavigation.navigate).toHaveBeenCalledTimes(1);
   })
-})
+});
