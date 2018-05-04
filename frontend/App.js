@@ -2,8 +2,9 @@ import React, { Component }  from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from './src/screens/HomeScreen';
-import ButtonScreen from './src/screens/ButtonScreen'
-import LoggedInScreen from './src/screens/LoggedInScreen'
+import ButtonScreen from './src/screens/ButtonScreen';
+import LoggedInScreen from './src/screens/LoggedInScreen';
+import ListScreen from './src/screens/ListScreen';
 
 
 export default class App extends Component {
@@ -15,15 +16,8 @@ export default class App extends Component {
 }
 
 const AppNavigator = new StackNavigator({
-  HomeScreen: { screen: HomeScreen},
-  LoggedInScreen: { screen: LoggedInScreen},
-  ButtonScreen: { screen: ButtonScreen}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  HomeScreen: { screen: HomeScreen },
+  LoggedInScreen: { screen: LoggedInScreen },
+  ButtonScreen: { screen: ButtonScreen },
+  ListScreen: { screen: ListScreen }
 });

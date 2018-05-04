@@ -9,7 +9,7 @@ export default class ButtonScreen extends Component {
       return (
       <View>
         <Text> ButtonScreen </Text>
-        <Button />
+        <Button  onClick={() => this.props.navigation.navigate('ListScreen')}/>
       </View>
     )
 

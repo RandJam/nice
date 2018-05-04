@@ -5,7 +5,7 @@ const util = require('util')
 
 export default class ListScreen extends Component{
   static navigationOptions = {
-    title: 'List screen',
+    title: 'List Screen',
   };
   render(){
     console.log("this.props.navigation = " + util.inspect(this.props.navigation, false, null))
