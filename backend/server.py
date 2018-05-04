@@ -1,3 +1,10 @@
+import os
+import logging
+import requests
+import pymongo
+from pymongo import MongoClient
+from requests_oauth2.services import GoogleClient
+from requests_oauth2 import OAuth2BearerToken
 from datetime import datetime
 from json2html import *
 from flask import (
@@ -8,11 +15,10 @@ from flask import (
     redirect,
     session
 )
-import os
-import logging
-import requests
-from requests_oauth2.services import GoogleClient
-from requests_oauth2 import OAuth2BearerToken
+
+client = MongoClient('mongodb://localhost:27017/')
+db = client.nice_database
+collection = db.all_data
 
 def create_app():
     app = Flask(__name__)
@@ -41,8 +47,25 @@ def create_app():
         data = r.json()
         name = data["displayName"]
         emails = data["emails"][0]["value"]
+
+        # user = {"_id": data["id"],
+        #             "name": data["displayName"],
+        #             "email": data["emails"][0]["value"],
+        #             "gender": data["gender"],
+        #             "date": datetime.now()
+        #         }
+        #
+        # collection.insert_one(user)
+
+        users = collection.find()
+
+        niceUsers = json2html.convert(json = users)
         niceData = json2html.convert(json = data)
-        return f"Hello, {name}! Your email address is, {emails}<br/><br/>{niceData}"
+
+        print("><><><><><><><><><><")
+        print(users)
+
+        return f"Hello, {name}! Your email address is, {emails}<br/><br/>{niceData}<br/><br/><br/>{niceUsers}"
 
 
     @app.route("/google/oauth2callback")
