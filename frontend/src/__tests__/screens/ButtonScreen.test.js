@@ -9,5 +9,4 @@ describe ("ButtonScreen", () => {
     expect(rendered).toBeTruthy();
     expect(rendered).toMatchSnapshot();
   });
-
-})
+});
