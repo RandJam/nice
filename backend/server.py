@@ -45,7 +45,7 @@ def create_app():
         gid = request.args.get('jgDonationId')
         print ("><><><><><><><><><><><><><")
         print (gid)
-        return f"this is it: {gid}"
+        return f"Donation Id Number: {gid}"
 
     @app.route("/logged-in/")
     def google_index():

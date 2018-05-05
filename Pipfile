@@ -12,10 +12,12 @@ pytest-flask = "*"
 requests = "*"
 "requests-oauth2" = "*"
 "json2html" = "*"
+coverage = "*"
 
 [dev-packages]
 pytest = "*"
 pytest-flask = "*"
+mock = "*"
 
 [requires]
 python_version = "3.6"
