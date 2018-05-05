@@ -16,7 +16,7 @@ def create_app():
     def nice():
         return "hello\n"
 
-        return jsonify(welcome = 'Welcome to a nice app...be nice!')
+        # return jsonify(welcome = 'Welcome to a nice app...be nice!')
 
 
 

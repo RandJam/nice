@@ -3,12 +3,7 @@ import {
   StyleSheet, Text, View, Button, Image
 } from 'react-native';
 import RectangleButton from '../components/RectangleButton';
-import axios from 'axios';
-
-const serverUrl = 'http://10.31.2.119:5000';
-const axiosMain = axios.create({
-  baseURL: serverUrl
-});
+import axiosMain from '../axios';
 
 export default class AuthScreen extends Component {
 
@@ -16,16 +11,28 @@ export default class AuthScreen extends Component {
     header: 'none'
   }
 
-  someMethod() {
-    'hello'
-  }
+  constructor(){
+  super();
+  this.state = {
+    input: '',
+  };
+}
+
+componentDidMount() {
+  const { result } = this.state
+  axiosMain.get('/')
+  .then(response => {
+    this.setState({
+      result: response.data
+    }); console.log(response.data)
+  })
+  .catch(error => {
+    console.log('Error fetching and parsing data', error)
+  })
+};
 
   handleLogInPress = () => {
-    axiosMain.get('/')
-    .then(function (response) { console.log(response.data)
-    })
-    .catch((err) => console.log(err))
-    // this.props.navigation.navigate('HomeScreen');
+    this.props.navigation.navigate('HomeScreen');
   }
 
   render() {
@@ -36,6 +43,7 @@ export default class AuthScreen extends Component {
             source={require('../assets/ammar-home.png')}
             style={styles.ammar}
           />
+
           <Text style={styles.helloText}>Hello</Text>
           <RectangleButton
             text="Sign in with Google"
@@ -43,6 +51,9 @@ export default class AuthScreen extends Component {
             backgroundColor={'blue'}
             handleOnPress={this.handleLogInPress}
           />
+
+          <Text> result from index: {this.state.result} </Text>
+
         </View>
       </View>
     );
