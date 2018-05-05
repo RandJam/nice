@@ -13,6 +13,8 @@ requests = "*"
 "requests-oauth2" = "*"
 "json2html" = "*"
 coverage = "*"
+pytest-mock = "*"
+pytest-splinter = "*"
 
 [dev-packages]
 pytest = "*"

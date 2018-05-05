@@ -1,1 +1,3 @@
 .coverage
+geckodriver.log
+/backend.test.test_server.TestApp

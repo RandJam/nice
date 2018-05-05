@@ -1,5 +1,6 @@
 [
   "backend/test/test_server.py::TestApp::()::test_nice",
   "backend/test/test_server.py::TestApp::()::test_donate",
-  "backend/test/test_server.py::TestApp::()::test_thanks"
+  "backend/test/test_server.py::TestApp::()::test_thanks_content",
+  "backend/test/test_server.py::TestApp::()::test_thanks_request"
 ]
