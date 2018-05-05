@@ -1,3 +1,4 @@
 [
-  "backend/test/test_server.py::TestApp::()::test_nice"
+  "backend/test/test_server.py::TestApp::()::test_nice",
+  "backend/test/test_server.py::TestApp::()::test_donate"
 ]

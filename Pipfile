@@ -9,6 +9,9 @@ request = "*"
 pymongo = "==3.4.0"
 pytest = "*"
 pytest-flask = "*"
+requests = "*"
+"requests-oauth2" = "*"
+"json2html" = "*"
 
 [dev-packages]
 pytest = "*"

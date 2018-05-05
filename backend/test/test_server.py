@@ -11,7 +11,11 @@ class TestApp:
 
     def test_nice(self, client):
         res = client.get('/')
-        assert res.status_code == 200
+        # 302 status redirect url status (redirected to logged-in route)
+        assert res.status_code == 302
 
-    def get_twitter_token(token=None):
-        return s
+    def test_donate(self, client):
+        res = client.get('/donate')
+        assert b'Donate with JustGiving' in res.data
+
+    def 
