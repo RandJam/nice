@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, AppRegistry, Text, View, StyleSheet, TouchableHighlight, TouchableOpacity, TextInput, Image, Linking } from 'react-native';
 import BasicFlatList from '../components/BasicFlatList';
-import axios from 'axios';
+import axiosMain from '../axios';
 
 const util = require('util')
 

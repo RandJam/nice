@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import {
   StyleSheet, Text, View, Button, Image
 } from 'react-native';
-import RectangleButton from '../components/RectangleButton'
+import RectangleButton from '../components/RectangleButton';
+import axios from 'axios';
+
+const serverUrl = 'http://10.31.2.119:5000';
+const axiosMain = axios.create({
+  baseURL: serverUrl
+});
 
 export default class AuthScreen extends Component {
 
@@ -10,8 +16,16 @@ export default class AuthScreen extends Component {
     header: 'none'
   }
 
+  someMethod() {
+    'hello'
+  }
+
   handleLogInPress = () => {
-    this.props.navigation.navigate('HomeScreen');
+    axiosMain.get('/')
+    .then(function (response) { console.log(response.data)
+    })
+    .catch((err) => console.log(err))
+    // this.props.navigation.navigate('HomeScreen');
   }
 
   render() {
