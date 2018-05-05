@@ -35,6 +35,17 @@ def create_app():
     def index():
         return redirect("/logged-in/")
 
+    @app.route("/donate")
+    def donate():
+        button = '<a href="https://link.justgiving.com/v1/charity/donate/charityId/189689?amount=5.00&currency=GBP&reference=be_nice&exitUrl=http%3A%2F%2Flocalhost%3A5000%2Fthanks%3FjgDonationId%3DJUSTGIVING-DONATION-ID&message=Its-good%20be%20be%20bad%20but%20being%20nice%20doesnt%20hurt%20either."><img src="https://vignette.wikia.nocookie.net/deep-space-69/images/9/99/Nice.png/revision/latest?cb=20130604210952" alt="Donate with JustGiving" /></a>'
+        return f"text {button}"
+
+    @app.route("/thanks")
+    def thanks():
+        gid = request.args.get('jgDonationId')
+        print ("><><><><><><><><><><><><><")
+        print (gid)
+        return f"this is it: {gid}"
 
     @app.route("/logged-in/")
     def google_index():
@@ -66,13 +77,14 @@ def create_app():
 
         # collection.delete_one({"_id":"106892412375491885318"})
 
-        users = [doc for doc in collection.find()]
+        users = [element for element in collection.find()]
+        # users = list(collection.find())
+
 
         niceUsers = json2html.convert(json = users)
         niceData = json2html.convert(json = data)
 
         print("><><><><><><><><><><")
-
         return f"Hello, {name}! Your email address is, {emails}<br/><br/>{niceData}<br/><br/><br/>{niceUsers}"
 
 
@@ -95,6 +107,19 @@ def create_app():
 
 
         return redirect("/")
+
+    # Experimental route - seeing if we can use oAuth with JustGiving
+    @app.route("/jg/")
+    def jg_index():
+        if not session.get("access_token"):
+            return "not logged in"
+        with requests.Session() as s:
+            s.auth = OAuth2BearerToken(session["access_token"])
+            r = s.get("http://api.justgiving.com/v1/account/getconsumerdetails")
+        r.raise_for_status()
+        data = r.json()
+
+        return data
 
 
     return app
