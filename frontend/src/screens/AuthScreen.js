@@ -11,31 +11,31 @@ export default class AuthScreen extends Component {
     header: 'none'
   }
 
-  constructor(){
-  super();
-  this.state = {
-    input: '',
-  };
-}
+  constructor() {
+    super();
+    this.state = {
+      term: ''
+    }
+  }
 
-componentDidMount() {
-  const { result } = this.state
-  axiosMain.get('/')
-  .then(response => {
-    this.setState({
-      result: response.data
-    }); console.log(response.data)
-  })
-  .catch(error => {
-    console.log('Error fetching and parsing data', error)
-  })
-};
+  componentDidMount() {
+     return axiosMain.get('/')
+    .then(response => {
+      this.setState({
+        term: response.data
+      });
+    })
+    .catch(error => {
+      console.log('Error fetching and parsing data', error)
+    })
+  };
 
   handleLogInPress = () => {
     this.props.navigation.navigate('HomeScreen');
   }
 
   render() {
+    const { term } = this.state
     return (
       <View style={styles.wrapper}>
         <View style={styles.helloWrapper}>
@@ -52,7 +52,7 @@ componentDidMount() {
             handleOnPress={this.handleLogInPress}
           />
 
-          <Text> result from index: {this.state.result} </Text>
+          <Text> result from index: {this.state.term} </Text>
 
         </View>
       </View>
