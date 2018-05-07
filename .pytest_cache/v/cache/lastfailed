@@ -1,4 +1,1 @@
-{
-  "backend/test/test_server.py::TestApp": true,
-  "backend/test/test_server.py::TestApp::()": true
-}
+{}

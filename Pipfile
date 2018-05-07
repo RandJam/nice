@@ -9,10 +9,17 @@ request = "*"
 pymongo = "==3.4.0"
 pytest = "*"
 pytest-flask = "*"
+requests = "*"
+"requests-oauth2" = "*"
+"json2html" = "*"
+coverage = "*"
+pytest-mock = "*"
+pytest-splinter = "*"
 
 [dev-packages]
 pytest = "*"
 pytest-flask = "*"
+mock = "*"
 
 [requires]
 python_version = "3.6"
