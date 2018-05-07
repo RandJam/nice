@@ -98,6 +98,15 @@ exports[`AuthScreen renders without crashing 1`] = `
         Sign in with Google
       </Text>
     </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+       result from index: 
+      
+       
+    </Text>
   </View>
 </View>
 `;

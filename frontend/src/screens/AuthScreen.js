@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   StyleSheet, Text, View, Button, Image
 } from 'react-native';
-import RectangleButton from '../components/RectangleButton'
+import RectangleButton from '../components/RectangleButton';
+import axiosMain from '../axios';
 
 export default class AuthScreen extends Component {
 
@@ -10,11 +11,31 @@ export default class AuthScreen extends Component {
     header: 'none'
   }
 
+  constructor() {
+    super();
+    this.state = {
+      term: ''
+    }
+  }
+
+  componentDidMount() {
+     return axiosMain.get('/')
+    .then(response => {
+      this.setState({
+        term: response.data
+      });
+    })
+    .catch(error => {
+      console.log('Error fetching and parsing data', error)
+    })
+  };
+
   handleLogInPress = () => {
-    this.props.navigation.navigate('ButtonScreen');
+    this.props.navigation.navigate('HomeScreen');
   }
 
   render() {
+    const { term } = this.state
     return (
       <View style={styles.wrapper}>
         <View style={styles.helloWrapper}>
@@ -22,6 +43,7 @@ export default class AuthScreen extends Component {
             source={require('../assets/ammar-home.png')}
             style={styles.ammar}
           />
+
           <Text style={styles.helloText}>Hello</Text>
           <RectangleButton
             text="Sign in with Google"
@@ -29,6 +51,9 @@ export default class AuthScreen extends Component {
             backgroundColor={'blue'}
             handleOnPress={this.handleLogInPress}
           />
+
+          <Text> result from index: {this.state.term} </Text>
+
         </View>
       </View>
     );
