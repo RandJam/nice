@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-native-scripts": "1.14.0",
+    "axios-mock-adapter": "^1.15.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jest-expo": "~27.0.0",
-    "react-test-renderer": "16.3.1"
+    "jest-mock-axios": "^2.1.11",
+    "jest-mock-promise": "^1.0.23",
+    "react-native-scripts": "1.14.0",
+    "react-test-renderer": "^16.3.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -13,14 +18,27 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest"
+    "test": "jest --verbose --coverage"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupFiles": [
+      "<rootDir>/src/setupTests.js"
+    ]
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-jest": "^22.4.3",
+    "babel-preset-react-native": "^4.0.0",
     "expo": "^27.0.1",
-    "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.3.2",
+    "react-native": "~0.55.2",
+    "react-native-elements": "^0.19.1",
+    "react-native-extended-stylesheet": "^0.8.1",
+    "react-navigation": "^1.5.11",
+    "util": "*"
   }
 }

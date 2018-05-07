@@ -10,6 +10,7 @@ from json2html import *
 from flask import (
     Flask,
     request,
+    Response,
     abort,
     jsonify,
     redirect,
@@ -127,4 +128,4 @@ def create_app():
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     app = create_app()
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
