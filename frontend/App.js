@@ -15,7 +15,8 @@ export default class App extends Component {
 }
 
 const AppNavigator = new StackNavigator({
-  AuthScreen: { screen: AuthScreen },
+  // AuthScreen: { screen: AuthScreen },
   HomeScreen: { screen: HomeScreen },
-  ListScreen: { screen: ListScreen }
+  ListScreen: { screen: ListScreen },
+
 });

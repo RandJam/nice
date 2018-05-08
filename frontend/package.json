@@ -38,6 +38,7 @@
     "react-native": "~0.55.2",
     "react-native-elements": "^0.19.1",
     "react-native-extended-stylesheet": "^0.8.1",
+    "react-native-test-utils": "^1.2.0",
     "react-navigation": "^1.5.11",
     "util": "*"
   }
