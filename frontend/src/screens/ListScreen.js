@@ -18,11 +18,29 @@ export default class ListScreen extends Component{
     // console.log("this.props.navigation = " + util.inspect(this.props.navigation, false, null))
     // var {params} = this.props.navigation.state;
     return(
-      <View>
-        <Button onPress={ this.handleDonationButtonPress } title='RANDOM DONATION'/>
+      <View style={styles.container}>
+        <Button
+          onPress={ this.handleDonationButtonPress }
+          title='RANDOM DONATION'
+          backgroundColor='rgba(255, 0, 139, 0.8)'
+          textStyle={{
+            fontSize: 30,
+            textAlign: 'center',
+            padding:15,
+            fontWeight:'500',
+            fontFamily:'Avenir'
+          }}
+        />
 
       </View>
     )
 
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  }
+})

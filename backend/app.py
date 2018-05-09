@@ -148,4 +148,4 @@ def get_one_framework(name):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='https://averyniceapp.herokuapp.com)
+    app.run(debug=True, host='https://averyniceapp.herokuapp.com')
