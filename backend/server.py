@@ -8,7 +8,7 @@ import json
 
 
 
-# from pymongo import MongoClient
+from pymongo import MongoClient
 # from bson.son import SON
 
 
@@ -23,25 +23,8 @@ charities = mongo.db.charities
 
 # app.config['BASIC_AUTH_FORCE'] = True
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @app.route("/donate")
 def donate():
-    button = '<a href="https://link.justgiving.com/v1/charity/donate/charityId/189689?amount=5.00&currency=GBP&reference=be_nice&exitUrl=http%3A%2F%2Flocalhost%3A5000%2Fthanks%3FjgDonationId%3DJUSTGIVING-DONATION-ID&message=Its-good%20be%20be%20bad%20but%20being%20nice%20doesnt%20hurt%20either."><img src="https://vignette.wikia.nocookie.net/deep-space-69/images/9/99/Nice.png/revision/latest?cb=20130604210952" alt="Donate with JustGiving" /></a>'
     data = get_charity_list()
     jsondata = data.json()
     results = (jsondata["GroupedResults"][0]["Results"])
@@ -53,7 +36,8 @@ def donate():
     count = charities.count()
     charity = charities.find()[random.randrange(count)]
 
-    print (charity["Id"])
+    charityId = charity["Id"]
+    button = f'<a href="https://link.justgiving.com/v1/charity/donate/charityId/{charityId}?amount=5.00&currency=GBP&reference=be_nice&exitUrl=http%3A%2F%2Flocalhost%3A5000%2Fthanks%3FjgDonationId%3DJUSTGIVING-DONATION-ID&message=Its-good%20be%20be%20bad%20but%20being%20nice%20doesnt%20hurt%20either."><img src="https://vignette.wikia.nocookie.net/deep-space-69/images/9/99/Nice.png/revision/latest?cb=20130604210952" alt="Donate with JustGiving" /></a>'
 
     return f"text {button}<br><br><br><br>"
 
@@ -77,6 +61,11 @@ def save_list(charity):
     print ("<><><><> Charity added to database <><><><>")
 
 
+
+
+
+
+
 @app.route("/thanks")
 def thanks():
     jgDonationId = request.args.get('jgDonationId')
@@ -89,13 +78,12 @@ def thanks():
         'Postman-Token': "b5f335c3-b26a-4a65-9a3c-9828bc35f243"
         }
 
-    # response = requests.request("GET", url, headers=headers)
-
-
-    # bal = jsonify(response.text)
-    # (response.text)
-    # return f"Donation Id Number: {gid} <br><br><br> {response.text}"
     print (jgDonationId)
+
+
+
+
+
 
 
 @app.route('/deeds', methods=['GET'])
