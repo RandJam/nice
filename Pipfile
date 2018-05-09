@@ -18,6 +18,7 @@ pytest-splinter = "*"
 flask-pymongo = "*"
 bcrypt = "*"
 flask-basicauth = "*"
+gunicorn = "*"
 
 [dev-packages]
 pytest = "*"
