@@ -36,7 +36,7 @@ export default class JgWebviewScreen extends Component {
   render() {
     return (
       <WebView
-        source={{uri: `https://link.justgiving.com/v1/charity/donate/charityId/${this.state.id}?amount=5.00&currency=GBP&reference=be_nice&exitUrl=http%3A%2F%2Flocalhost%3A5000%2Fthanks%3FjgDonationId%3DJUSTGIVING-DONATION-ID&message=Its-good%20be%20be%20bad%20but%20being%20nice%20doesnt%20hurt%20either.`}}
+        source={{uri: `https://link.justgiving.com/v1/charity/donate/charityId/${this.state.id}?amount=5.00&currency=GBP&reference=be_nice&exitUrl=https%3A%2F%2Faveryniceapp.herokuapp.com%2Fthanks%3FjgDonationId%3DJUSTGIVING-DONATION-ID&message=Its-good%20be%20be%20bad%20but%20being%20nice%20doesnt%20hurt%20either.`}}
         style={{marginTop: 20}}
       />
     );
