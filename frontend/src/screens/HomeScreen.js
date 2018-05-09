@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View } from 'react-native';
+import {StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button'
 
 const util = require('util')
@@ -13,11 +13,19 @@ export default class HomeScreen extends Component {
 
   render(){
       return (
-      <View>
-        <Text> HomeScreen </Text>
+      <View style={styles.container}>
+
         <Button  onClick={ this.handleNiceButtonPress }/>
       </View>
     )
 
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})

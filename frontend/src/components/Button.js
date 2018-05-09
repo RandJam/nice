@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
 const Button = (props) =>(
   <TouchableOpacity onPress={props.onClick}>
-    <Image source={require("../assets/nice-logo.png")} style={{width: 400, height: 400}}/>
+    <Image source={require("../assets/nice-logo.png")} style={{width: 325, height: 325}}/>
   </TouchableOpacity>
 )
 
