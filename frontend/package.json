@@ -31,6 +31,7 @@
     "babel-jest": "^22.4.3",
     "babel-preset-react-native": "^4.0.0",
     "expo": "^27.0.1",
+    "globals": "^11.5.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-addons-test-utils": "^15.6.2",
