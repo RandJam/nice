@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import AuthScreen from './src/screens/AuthScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ListScreen from './src/screens/ListScreen';
+import JgWebviewScreen from './src/screens/JgWebviewScreen';
 
 
 export default class App extends Component {
@@ -18,5 +19,5 @@ const AppNavigator = new StackNavigator({
   // AuthScreen: { screen: AuthScreen },
   HomeScreen: { screen: HomeScreen },
   ListScreen: { screen: ListScreen },
-
+  JgWebviewScreen: { screen: JgWebviewScreen },
 });
