@@ -72,7 +72,6 @@ def save_list(charity):
     except Exception as e:
         error = str(e)
         return error
-    print ("<><><><> Charity added to database <><><><>")
 
 
 
@@ -84,25 +83,38 @@ def save_list(charity):
 def thanks():
     jgDonationId = request.args.get('jgDonationId')
 
-    charityName = get_charity_number(jgDonationId)
-    return f"thanks very much. you have just given money to Saudi Arabia, just kidding, its actually {charityName} and your donation ID is {jgDonationId}"
+    donation = get_donation(jgDonationId)
+    charityId = donation["charityId"]
+    donorName = donation["donorDisplayName"]
+    charityDetails = get_charity_details(charityId)
+    amount = donation["amount"]
+    currency = donation["donorLocalCurrencyCode"]
+    charityName = charityDetails["name"]
+    charityDescription = charityDetails["description"]
+
+    return f"thanks very much, {donorName}. you have just given {currency}{amount} to ISIS. Just kidding, it's actually {charityName} and your donation ID is {jgDonationId}<br><br><br>{charityDescription}"
 
 
-def get_charity_number(jgDonationId):
+def get_donation(jgDonationId):
     url = f"https://api.justgiving.com/6fc965bd/v1/donation/{jgDonationId}"
-
     headers = {
         'accept': "application/json",
         'cache-control': "no-cache",
         'postman-token': "8f302b74-0bb4-451c-e4f3-7663ab52ca0e"
         }
-
     response = requests.request("GET", url, headers=headers)
-
-    return (response.text)
-
+    return (response.json())
 
 
+def get_charity_details(charityId):
+    url = f"https://api.justgiving.com/6fc965bd/v1/charity/{charityId}"
+    headers = {
+        'accept': "application/json",
+        'cache-control': "no-cache",
+        'postman-token': "bce62850-664f-5c2a-317b-e5cdd0417d31"
+        }
+    response = requests.request("GET", url, headers=headers)
+    return (response.json())
 
 
 
