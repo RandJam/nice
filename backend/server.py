@@ -1,9 +1,15 @@
 from flask import Flask, jsonify, request, render_template, url_for, session, redirect, Response
-from flask_pymongo import PyMongo
+# from flask_pymongo import PyMongo
 from functools import wraps
 from flask_basicauth import BasicAuth
 import requests
 import json
+import random
+
+
+import pymongo
+from pymongo import MongoClient
+
 
 
 
@@ -15,11 +21,15 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'nice_db'
-app.config['MONGO_URI'] = 'mongodb://ant:supersecretpassword@ds117200.mlab.com:17200/nice_db'
+# app.config['MONGO_DBNAME'] = 'nice_db'
+# app.config['MONGO_URI'] = 'mongodb://ant:supersecretpassword@ds117200.mlab.com:17200/nice_db'
+#
+# mongo = PyMongo(app)
+# charities = mongo.db.charities
 
-mongo = PyMongo(app)
-charities = mongo.db.charities
+client = MongoClient('mongodb://ant:supersecretpassword@ds117200.mlab.com:17200/nice_db')
+db = client.nice_db
+charities = db.charities
 
 # app.config['BASIC_AUTH_FORCE'] = True
 
@@ -36,10 +46,14 @@ def donate():
     count = charities.count()
     charity = charities.find()[random.randrange(count)]
 
-    charityId = charity["Id"]
-    button = f'<a href="https://link.justgiving.com/v1/charity/donate/charityId/{charityId}?amount=5.00&currency=GBP&reference=be_nice&exitUrl=http%3A%2F%2Flocalhost%3A5000%2Fthanks%3FjgDonationId%3DJUSTGIVING-DONATION-ID&message=Its-good%20be%20be%20bad%20but%20being%20nice%20doesnt%20hurt%20either."><img src="https://vignette.wikia.nocookie.net/deep-space-69/images/9/99/Nice.png/revision/latest?cb=20130604210952" alt="Donate with JustGiving" /></a>'
+    charityId = {"charityId": charity["Id"]}
+    # button = f'<a href="https://link.justgiving.com/v1/charity/donate/charityId/{charityId}?amount=5.00&currency=GBP&reference=be_nice&exitUrl=http%3A%2F%2Flocalhost%3A5000%2Fthanks%3FjgDonationId%3DJUSTGIVING-DONATION-ID&message=Its-good%20be%20be%20bad%20but%20being%20nice%20doesnt%20hurt%20either."><img src="https://vignette.wikia.nocookie.net/deep-space-69/images/9/99/Nice.png/revision/latest?cb=20130604210952" alt="Donate with JustGiving" /></a>'
+    #
+    # return f"text {button}<br><br><br><br>"
 
-    return f"text {button}<br><br><br><br>"
+    return charityId
+
+
 
 def get_charity_list():
     url = "https://api.justgiving.com/6fc965bd/v1/onesearch"
@@ -70,15 +84,24 @@ def save_list(charity):
 def thanks():
     jgDonationId = request.args.get('jgDonationId')
 
-    url = f"http://api.sandbox.justgiving.com/6fc965bd/v1/charity/"
+    charityName = get_charity_number(jgDonationId)
+    return f"thanks very much. you have just given money to Saudi Arabia, just kidding, its actually {charityName} and your donation ID is {jgDonationId}"
+
+
+def get_charity_number(jgDonationId):
+    url = f"https://api.justgiving.com/6fc965bd/v1/donation/{jgDonationId}"
 
     headers = {
-        'Authorization': "Basic YW50Y2luOnBhc3N3b3JkMTIzNA==",
-        'Cache-Control': "no-cache",
-        'Postman-Token': "b5f335c3-b26a-4a65-9a3c-9828bc35f243"
+        'accept': "application/json",
+        'cache-control': "no-cache",
+        'postman-token': "8f302b74-0bb4-451c-e4f3-7663ab52ca0e"
         }
 
-    print (jgDonationId)
+    response = requests.request("GET", url, headers=headers)
+
+    return (response.text)
+
+
 
 
 
