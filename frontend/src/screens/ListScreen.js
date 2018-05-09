@@ -7,7 +7,7 @@ const util = require('util')
 
 export default class ListScreen extends Component{
   static navigationOptions = {
-    title: 'List Screen',
+    title: 'NICE OPTIONS',
   };
 
   handleDonationButtonPress = () => {
@@ -19,7 +19,7 @@ export default class ListScreen extends Component{
     // var {params} = this.props.navigation.state;
     return(
       <View>
-        <Button onPress={ this.handleDonationButtonPress } title='BUTTON WITH ICON'/>
+        <Button onPress={ this.handleDonationButtonPress } title='RANDOM DONATION'/>
 
       </View>
     )
