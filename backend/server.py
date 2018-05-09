@@ -51,7 +51,7 @@ def donate():
     #
     # return f"text {button}<br><br><br><br>"
 
-    return charityId
+    return jsonify(charityId)
 
 
 
