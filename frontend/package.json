@@ -37,9 +37,11 @@
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.3.2",
     "react-native": "^0.55.4",
+    "react-native-cli": "^2.0.1",
     "react-native-elements": "^0.19.1",
     "react-native-extended-stylesheet": "^0.8.1",
     "react-native-test-utils": "^1.2.0",
+    "react-native-video": "^2.0.0",
     "react-navigation": "^1.5.12",
     "util": "*"
   }

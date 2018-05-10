@@ -22,7 +22,7 @@ export default class ListScreen extends Component{
         <Button
           onPress={ this.handleDonationButtonPress }
           title='RANDOM DONATION'
-          backgroundColor='rgba(255, 0, 139, 0.8)'
+          backgroundColor='rgba(254, 114, 76, 0.8)'
           textStyle={{
             fontSize: 30,
             textAlign: 'center',
