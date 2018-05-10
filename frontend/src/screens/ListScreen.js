@@ -1,5 +1,17 @@
 import React, {Component} from 'react';
-import {Platform, AppRegistry, FlatList, Text, View, StyleSheet, TouchableHighlight, TouchableOpacity, TextInput, Image, Linking } from 'react-native';
+import {
+  Platform,
+  AppRegistry,
+  FlatList,
+  Text,
+  View,
+  StyleSheet,
+  TouchableHighlight,
+  TouchableOpacity,
+  TextInput,
+  Image,
+  Linking
+} from 'react-native';
 import axiosMain from '../axios';
 import { Button } from 'react-native-elements'
 
@@ -42,5 +54,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: '#ffc719'
   }
 })
