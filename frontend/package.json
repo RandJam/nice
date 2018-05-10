@@ -4,11 +4,29 @@
   "private": true,
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-react-native": "^4.0.0",
+    "chai": "^4.1.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "jest-expo": "~27.0.0",
     "jest-mock-axios": "^2.1.11",
     "jest-mock-promise": "^1.0.23",
+    "jsdom": "^11.10.0",
+    "mocha": "^5.1.1",
+    "react": "^16.3.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.3.2",
+    "react-native-mock": "^0.3.1",
+    "react-native-mock-render": "0.0.25",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "^16.3.1"
   },
@@ -18,31 +36,39 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest --verbose --coverage"
+    "test:unit": "jest --verbose --coverage",
+    "test": "yarn lint && yarn flow && jest",
+    "lint": "eslint src",
+    "pretty": "prettier --semi false --print-width 100 --single-quote --trailing-comma all --write \"src/**/*.js\""
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn pretty",
+      "git add"
+    ]
   },
   "jest": {
-    "preset": "jest-expo",
+    "preset": "react-native",
+    "testMatch": [
+      "**/?(*.)test.js?(x)"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "setupFiles": [
-      "<rootDir>/src/setupTests.js"
+      "<rootDir>/jest/setup.js"
     ]
   },
   "dependencies": {
     "axios": "^0.18.0",
     "babel-jest": "^22.4.3",
-    "babel-preset-react-native": "^4.0.0",
     "expo": "^27.0.1",
-    "globals": "^11.5.0",
     "prop-types": "^15.6.1",
-    "react": "^16.3.2",
-    "react-addons-test-utils": "^15.6.2",
-    "react-dom": "^16.3.2",
-    "react-native": "^0.55.4",
-    "react-native-cli": "^2.0.1",
+    "react-native": "~0.55.2",
     "react-native-elements": "^0.19.1",
     "react-native-extended-stylesheet": "^0.8.1",
     "react-native-test-utils": "^1.2.0",
-    "react-native-video": "^2.0.0",
-    "react-navigation": "^1.5.12",
+    "react-navigation": "^1.5.11",
     "util": "*"
   }
 }
