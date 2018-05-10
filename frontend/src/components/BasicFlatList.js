@@ -37,10 +37,10 @@ export default class BasicFlatList extends Component {
 
               </FlatListItem>)
           }}
-          >
+        />
 
 
-        </FlatList>
+    
       </View>
     )
   }

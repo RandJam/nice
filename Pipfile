@@ -15,6 +15,9 @@ requests = "*"
 coverage = "*"
 pytest-mock = "*"
 pytest-splinter = "*"
+flask-pymongo = "*"
+bcrypt = "*"
+flask-basicauth = "*"
 
 [dev-packages]
 pytest = "*"

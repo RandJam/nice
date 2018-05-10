@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1525644951398" clover="3.2.0">
-  <project timestamp="1525644951398" name="All files">
-    <metrics statements="38" coveredstatements="30" conditionals="2" coveredconditionals="0" methods="16" coveredmethods="10" elements="56" coveredelements="40" complexity="0" loc="38" ncloc="38" packages="6" files="12" classes="12">
+<coverage generated="1525777143716" clover="3.2.0">
+  <project timestamp="1525777143716" name="All files">
+    <metrics statements="37" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="7" elements="58" coveredelements="31" complexity="0" loc="37" ncloc="37" packages="5" files="10" classes="10">
       <package name="frontend">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="App.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/App.js">
@@ -23,75 +23,65 @@
         </file>
       </package>
       <package name="frontend.src.assets">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="ammar-home.png" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/assets/ammar-home.png">
-          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="3" type="stmt"/>
-        </file>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="nice-logo.png" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/assets/nice-logo.png">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="2" type="stmt"/>
+          <line num="1" count="4" type="stmt"/>
         </file>
       </package>
       <package name="frontend.src.components">
-        <metrics statements="12" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
-        <file name="BasicFlatList.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/components/BasicFlatList.js">
-          <metrics statements="4" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="19" count="2" type="stmt"/>
-          <line num="29" count="0" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
-        </file>
+        <metrics statements="18" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="2"/>
         <file name="Button.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/components/Button.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="5" count="4" type="stmt"/>
-          <line num="6" count="5" type="stmt"/>
+          <line num="6" count="7" type="stmt"/>
           <line num="11" count="4" type="stmt"/>
           <line num="15" count="4" type="stmt"/>
         </file>
+        <file name="DeedList.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/components/DeedList.js">
+          <metrics statements="10" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="64" count="0" type="stmt"/>
+          <line num="76" count="2" type="stmt"/>
+        </file>
         <file name="RectangleButton.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/components/RectangleButton.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="6" type="stmt"/>
-          <line num="13" count="6" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
           <line num="24" count="4" type="stmt"/>
           <line num="31" count="4" type="stmt"/>
         </file>
       </package>
-      <package name="frontend.src.data">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="flatListData.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/data/flatListData.js">
-          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="4" count="2" type="stmt"/>
-          <line num="17" count="2" type="stmt"/>
-        </file>
-      </package>
       <package name="frontend.src.screens">
-        <metrics statements="17" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="7"/>
+        <metrics statements="13" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="4"/>
         <file name="AuthScreen.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/screens/AuthScreen.js">
-          <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
-          <line num="15" count="6" type="stmt"/>
-          <line num="16" count="6" type="stmt"/>
-          <line num="22" count="8" type="stmt"/>
-          <line num="24" count="2" type="stmt"/>
-          <line num="29" count="0" type="stmt"/>
-          <line num="34" count="1" type="stmt"/>
-          <line num="38" count="8" type="stmt"/>
-          <line num="39" count="8" type="stmt"/>
-          <line num="64" count="3" type="stmt"/>
+          <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
+          <line num="54" count="1" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="79" count="3" type="stmt"/>
         </file>
         <file name="HomeScreen.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/screens/HomeScreen.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="5" count="3" type="stmt"/>
           <line num="11" count="1" type="stmt"/>
-          <line num="15" count="2" type="stmt"/>
+          <line num="15" count="4" type="stmt"/>
         </file>
         <file name="ListScreen.js" path="/Users/antcin/Desktop/gitDir/nice/frontend/src/screens/ListScreen.js">
-          <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="6" count="2" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
-          <line num="18" count="0" type="stmt"/>
-          <line num="19" count="0" type="stmt"/>
-          <line num="23" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
         </file>
       </package>
     </metrics>
