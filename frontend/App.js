@@ -1,7 +1,6 @@
 import React, { Component }  from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import AuthScreen from './src/screens/AuthScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ListScreen from './src/screens/ListScreen';
 import JgWebviewScreen from './src/screens/JgWebviewScreen';
