@@ -11,27 +11,11 @@ import pymongo
 from pymongo import MongoClient
 
 
-
-
-
-from pymongo import MongoClient
-# from bson.son import SON
-
-
-
 app = Flask(__name__)
-
-# app.config['MONGO_DBNAME'] = 'nice_db'
-# app.config['MONGO_URI'] = 'mongodb://ant:supersecretpassword@ds117200.mlab.com:17200/nice_db'
-#
-# mongo = PyMongo(app)
-# charities = mongo.db.charities
 
 client = MongoClient('mongodb://ant:supersecretpassword@ds117200.mlab.com:17200/nice_db')
 db = client.nice_db
 charities = db.charities
-
-# app.config['BASIC_AUTH_FORCE'] = True
 
 @app.route("/donate")
 def donate():
@@ -47,13 +31,7 @@ def donate():
     charity = charities.find()[random.randrange(count)]
 
     charityId = {"charityId": charity["Id"]}
-    # button = f'<a href="https://link.justgiving.com/v1/charity/donate/charityId/{charityId}?amount=5.00&currency=GBP&reference=be_nice&exitUrl=http%3A%2F%2Flocalhost%3A5000%2Fthanks%3FjgDonationId%3DJUSTGIVING-DONATION-ID&message=Its-good%20be%20be%20bad%20but%20being%20nice%20doesnt%20hurt%20either."><img src="https://vignette.wikia.nocookie.net/deep-space-69/images/9/99/Nice.png/revision/latest?cb=20130604210952" alt="Donate with JustGiving" /></a>'
-    #
-    # return f"text {button}<br><br><br><br>"
-
     return jsonify(charityId)
-
-
 
 def get_charity_list():
     url = "https://api.justgiving.com/6fc965bd/v1/onesearch"
@@ -72,12 +50,6 @@ def save_list(charity):
     except Exception as e:
         error = str(e)
         return error
-
-
-
-
-
-
 
 @app.route("/thanks")
 def thanks():
@@ -115,37 +87,6 @@ def get_charity_details(charityId):
         }
     response = requests.request("GET", url, headers=headers)
     return (response.json())
-
-
-
-
-
-
-@app.route('/deeds', methods=['GET'])
-def get_all_deeds():
-    deeds = mongo.db.deeds
-
-    output = []
-
-    for query in deeds.find():
-        output.append({'name' : query['name'], 'description' : query['description']})
-
-    return jsonify(output)
-
-
-@app.route('/deeds/<name>', methods=['GET'])
-def get_one_framework(name):
-    deeds = mongo.db.deeds
-
-    query = deeds.find_one({'name' : name})
-
-    if query:
-        output = {'name' : query['name'], 'description' : query['description']}
-    else:
-        output = 'No results found'
-
-    return jsonify(output)
-
 
 if __name__ == '__main__':
     app.run(debug=True, host='https://averyniceapp.herokuapp.com')
