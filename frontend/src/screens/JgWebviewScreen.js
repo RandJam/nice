@@ -19,7 +19,7 @@ export default class JgWebviewScreen extends Component {
         })
       })
       .catch(error => {
-        console.log('Error fetching and parsing data', error)
+        // console.log('Error fetching and parsing data', error)
       })
   }
 
