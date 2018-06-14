@@ -31,6 +31,7 @@ def donate():
     charity = charities.find()[random.randrange(count)]
 
     charityId = {"charityId": charity["Id"]}
+    print (charityId)
     return jsonify(charityId)
 
 def get_charity_list():
@@ -89,4 +90,5 @@ def get_charity_details(charityId):
     return (response.json())
 
 if __name__ == '__main__':
-    app.run(debug=True, host='https://averyniceapp.herokuapp.com')
+    # app.run(debug=True, host='https://averyniceapp.herokuapp.com')
+    app.run(debug=True, host='0.0.0.0')
